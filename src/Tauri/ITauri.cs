@@ -1,4 +1,5 @@
 ﻿using Tauri.Services.App;
+using Tauri.Services.Cli;
 
 namespace Tauri;
 
@@ -9,4 +10,7 @@ public interface ITauri
 {
     /// <inheritdoc cref="IAppService" />
     IAppService App { get; }
+    
+    /// <inheritdoc cref="ICliService" />
+    ICliService Cli { get; }
 }
