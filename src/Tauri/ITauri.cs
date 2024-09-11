@@ -1,6 +1,7 @@
 ﻿using Tauri.Services.App;
 using Tauri.Services.Cli;
 using Tauri.Services.Clipboard;
+using Tauri.Services.Dialog;
 
 namespace Tauri;
 
@@ -17,4 +18,7 @@ public interface ITauri
     
     /// <inheritdoc cref="IClipboardService" />
     IClipboardService Clipboard { get; }
+    
+    /// <inheritdoc cref="IDialogService" />
+    IDialogService Dialog { get; }
 }
