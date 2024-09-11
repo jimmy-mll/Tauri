@@ -29,10 +29,23 @@ public interface IClipboardService
     /// <summary>
     /// Gets the clipboard content as plain text.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// @inject ITauri Tauri
+    /// var clipboardText = await Tauri.Clipboard.ReadTextAsync();
+    /// </code>
+    /// </example>
     ValueTask<string?> ReadTextAsync();
     
     /// <summary>
     /// Writes plain text to the clipboard.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// @inject ITauri Tauri
+    /// await Tauri.Clipboard.WriteTextAsync("Tauri is awesome!");
+    /// Debug.Assert(await Tauri.Clipboard.ReadTextAsync() == "Tauri is awesome!");
+    /// </code>
+    /// </example>
     ValueTask WriteTextAsync(string text);
 }

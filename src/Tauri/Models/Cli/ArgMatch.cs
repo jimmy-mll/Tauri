@@ -10,7 +10,7 @@ public sealed class ArgMatch
     [JsonConverter(typeof(ArgMatchValueConverter))]
     [JsonPropertyName("value")]
     public required OneOf<NullValue, string, bool, string[]> Value { get; init; }
-    
+ 
     [JsonPropertyName("occurrences")]
     public required int Occurrences { get; init; }
 }
