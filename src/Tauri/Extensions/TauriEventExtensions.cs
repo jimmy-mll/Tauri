@@ -2,8 +2,17 @@
 
 namespace Tauri.Extensions;
 
+/// <summary>
+/// Provides extension methods for converting between <see cref="TauriEvent"/> and their corresponding scheme names.
+/// </summary>
 public static class TauriEventExtensions
 {
+    /// <summary>
+    /// Converts a <see cref="TauriEvent"/> to its corresponding scheme name.
+    /// </summary>
+    /// <param name="tauriEvent">The <see cref="TauriEvent"/> to convert.</param>
+    /// <returns>The scheme name corresponding to the specified <see cref="TauriEvent"/>.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown when the <see cref="TauriEvent"/> is out of range.</exception>
     public static string ToSchemeName(this TauriEvent tauriEvent)
     {
         return tauriEvent switch
@@ -29,7 +38,13 @@ public static class TauriEventExtensions
             _ => throw new ArgumentOutOfRangeException(nameof(tauriEvent))
         };
     }
-    
+
+    /// <summary>
+    /// Converts a scheme name to its corresponding <see cref="TauriEvent"/>.
+    /// </summary>
+    /// <param name="eventName">The scheme name to convert.</param>
+    /// <returns>The <see cref="TauriEvent"/> corresponding to the specified scheme name.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown when the scheme name is out of range.</exception>
     public static TauriEvent ToTauriEvent(this string eventName)
     {
         return eventName switch
