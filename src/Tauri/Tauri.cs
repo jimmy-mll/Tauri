@@ -5,6 +5,7 @@ using Tauri.Services.Clipboard;
 using Tauri.Services.Dialog;
 using Tauri.Services.Event;
 using Tauri.Services.Fs;
+using Tauri.Services.GlobalShortcut;
 
 namespace Tauri;
 
@@ -17,6 +18,7 @@ public sealed class Tauri : ITauri
     private readonly Lazy<IDialogService> _dialog;
     private readonly Lazy<IEventService> _event;
     private readonly Lazy<IFsService> _fs;
+    private readonly Lazy<IGlobalShortcutService> _globalShortcut;
     
     /// <inheritdoc />
     public IAppService App =>
@@ -42,6 +44,10 @@ public sealed class Tauri : ITauri
     public IFsService Fs =>
         _fs.Value;
     
+    /// <inheritdoc />
+    public IGlobalShortcutService GlobalShortcut =>
+        _globalShortcut.Value;
+    
     public Tauri(IJSRuntime jsRuntime)
     {
         _app = new Lazy<IAppService>(() => new AppService(jsRuntime));
@@ -50,5 +56,6 @@ public sealed class Tauri : ITauri
         _dialog = new Lazy<IDialogService>(() => new DialogService(jsRuntime));
         _event = new Lazy<IEventService>(() => new EventService(jsRuntime));
         _fs = new Lazy<IFsService>(() => new FsService(jsRuntime));
+        _globalShortcut = new Lazy<IGlobalShortcutService>(() => new GlobalShortcutService(jsRuntime));
     }
 }

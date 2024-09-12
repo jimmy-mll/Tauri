@@ -4,6 +4,7 @@ using Tauri.Services.Clipboard;
 using Tauri.Services.Dialog;
 using Tauri.Services.Event;
 using Tauri.Services.Fs;
+using Tauri.Services.GlobalShortcut;
 
 namespace Tauri;
 
@@ -29,4 +30,7 @@ public interface ITauri
     
     /// <inheritdoc cref="IFsService" />
     IFsService Fs { get; }
+    
+    /// <inheritdoc cref="IGlobalShortcutService" />
+    IGlobalShortcutService GlobalShortcut { get; }
 }
