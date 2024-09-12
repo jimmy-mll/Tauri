@@ -3,6 +3,7 @@ using Tauri.Services.Cli;
 using Tauri.Services.Clipboard;
 using Tauri.Services.Dialog;
 using Tauri.Services.Event;
+using Tauri.Services.Fs;
 
 namespace Tauri;
 
@@ -25,4 +26,7 @@ public interface ITauri
     
     /// <inheritdoc cref="IEventService" />
     IEventService Event { get; }
+    
+    /// <inheritdoc cref="IFsService" />
+    IFsService Fs { get; }
 }

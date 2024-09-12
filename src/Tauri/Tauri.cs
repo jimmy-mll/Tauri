@@ -4,6 +4,7 @@ using Tauri.Services.Cli;
 using Tauri.Services.Clipboard;
 using Tauri.Services.Dialog;
 using Tauri.Services.Event;
+using Tauri.Services.Fs;
 
 namespace Tauri;
 
@@ -15,6 +16,7 @@ public sealed class Tauri : ITauri
     private readonly Lazy<IClipboardService> _clipboard;
     private readonly Lazy<IDialogService> _dialog;
     private readonly Lazy<IEventService> _event;
+    private readonly Lazy<IFsService> _fs;
     
     /// <inheritdoc />
     public IAppService App =>
@@ -36,6 +38,10 @@ public sealed class Tauri : ITauri
     public IEventService Event =>
         _event.Value;
     
+    /// <inheritdoc />
+    public IFsService Fs =>
+        _fs.Value;
+    
     public Tauri(IJSRuntime jsRuntime)
     {
         _app = new Lazy<IAppService>(() => new AppService(jsRuntime));
@@ -43,5 +49,6 @@ public sealed class Tauri : ITauri
         _clipboard = new Lazy<IClipboardService>(() => new ClipboardService(jsRuntime));
         _dialog = new Lazy<IDialogService>(() => new DialogService(jsRuntime));
         _event = new Lazy<IEventService>(() => new EventService(jsRuntime));
+        _fs = new Lazy<IFsService>(() => new FsService(jsRuntime));
     }
 }

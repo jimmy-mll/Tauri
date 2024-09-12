@@ -1,0 +1,30 @@
+﻿namespace Tauri.Models.Fs;
+
+public enum BaseDirectory
+{
+    Audio = 1,
+    Cache,
+    Config,
+    Data,
+    LocalData,
+    Desktop,
+    Document,
+    Download,
+    Executable,
+    Font,
+    Home,
+    Picture,
+    Public,
+    Runtime,
+    Template,
+    Video,
+    Resource,
+    App,
+    Log,
+    Temp,
+    AppConfig,
+    AppData,
+    AppLocalData,
+    AppCache,
+    AppLog,
+}
